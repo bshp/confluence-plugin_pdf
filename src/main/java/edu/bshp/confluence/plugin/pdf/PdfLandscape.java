@@ -19,7 +19,7 @@ public class PdfLandscape implements Macro {
         Map<String, Object> context = MacroUtils.defaultVelocityContext();
         context.put("body", body);
         context.put("landscapeFirstDomElement", landscapeFirstDomElememt);
-        return VelocityUtils.getRenderedTemplate("/edu.bshp.confluence.plugin.pdf/velocity/pdfLandscape.vm", context);
+        return VelocityUtils.getRenderedTemplate("/velocity/pdfLandscape.vm", context);
     }
 
     private boolean checkFirstDomElement(String pageBody, ConversionContext conversionContext) {

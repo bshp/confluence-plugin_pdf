@@ -25,7 +25,7 @@ public class PdfFontSize implements Macro {
         context.put("body", body);
         context.put("fontSize", fontSize);
         context.put("bodyId", UUID.randomUUID().toString());
-        return VelocityUtils.getRenderedTemplate("/edu.bshp.confluence.plugin.pdf/velocity/pdfFontSize.vm", context);
+        return VelocityUtils.getRenderedTemplate("/velocity/pdfFontSize.vm", context);
     }
 
     private String changeFontSizeBody(String body) {

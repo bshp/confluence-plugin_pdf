@@ -11,7 +11,7 @@ public class HideInPdfExport implements Macro {
     public String execute(Map<String, String> params, String body, ConversionContext conversionContext) {
         Map<String, Object> context = MacroUtils.defaultVelocityContext();
         context.put("body", body);
-        return VelocityUtils.getRenderedTemplate("/edu.bshp.confluence.plugin.pdf/velocity/hiddenInPdfExport.vm", context);
+        return VelocityUtils.getRenderedTemplate("/velocity/hiddenInPdfExport.vm", context);
     }
 
     @Override
