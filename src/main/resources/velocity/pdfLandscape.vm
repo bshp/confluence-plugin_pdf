@@ -1,0 +1,10 @@
+#* @vtlvariable name="action" type="com.atlassian.confluence.pages.actions.ViewPageAction" *#
+#requireResource('edu.bshp.confluence.plugin.pdf:plugin-pdf_resources')
+<div class="landscapedInPDF">
+    #if ($landscapeFirstDomElement)
+        <div class="hideInWebView conf-macro output-inline" data-hasbody="true" data-macro-name="pdf_hide">
+            <h1>${action.page.title}</h1>
+        </div>
+    #end
+    ${body}
+</div>

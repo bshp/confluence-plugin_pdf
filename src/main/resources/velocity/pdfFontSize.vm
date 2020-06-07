@@ -1,0 +1,14 @@
+#* @vtlvariable name="bodyId" type="java.lang.String" *#
+#* @vtlvariable name="fontSize" type="java.lang.Integer" *#
+#* @vtlvariable name="body" type="java.lang.String" *#
+#requireResource('edu.bshp.confluence.plugin.pdf:plugin-pdf_resources')
+<div class="pdfFontsize" data-id="${bodyId}">
+    ${body}
+</div>
+<style type="text/css">
+    @media print {
+        div.pdfFontsize[data-id="$bodyId"] {
+            font-size: ${fontSize}pt !important;
+        }
+    }
+</style>

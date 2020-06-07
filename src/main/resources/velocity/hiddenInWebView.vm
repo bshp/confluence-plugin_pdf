@@ -1,0 +1,7 @@
+#requireResource('edu.bshp.confluence.plugin.pdf:plugin-pdf_resources')
+<div class="hideInWebView">
+    ${body}
+    <p style="display: none;">
+        <!--Necessary second paragraph to correctly render heading-->
+    </p>
+</div>

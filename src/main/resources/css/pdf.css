@@ -1,0 +1,105 @@
+.pageBreakInPdfExport {
+    page-break-after: always;
+}
+
+.avoidPageBreakInPdfExport {
+    page-break-inside: avoid;
+}
+
+@media print {
+    .hideInPdfExport {
+        display: none;
+    }
+
+    .hideInWebView {
+        display: block;
+    }
+
+    .landscapedInPDF {
+        page: rotated;
+        width: 247mm !important;
+    }
+}
+
+@media screen {
+    .hideInPdfExport {
+        display: block;
+    }
+
+    .hideInWebView {
+        display: none;
+    }
+}
+
+@page rotated {
+    size: landscape;
+}
+
+@media print {
+    .landscapedInPDF .confluence-information-macro {
+        width: 230mm;
+    }
+
+    /*necessary icon space on the left side of macro*/
+    .aui-icon-small.aui-iconfont-info {
+        padding-left: 20px;
+    }
+
+    .aui-icon-small.aui-iconfont-error {
+        padding-left: 20px;
+    }
+
+    .aui-icon-small.aui-iconfont-warning {
+        padding-left: 20px;
+    }
+
+    .aui-icon-small.aui-iconfont-tip {
+        padding-left: 20px;
+    }
+
+    /*single background image as the icon*/
+    .confluence-information-macro-information {
+        background-image: url(../images/icons/info.png);
+        background-repeat: no-repeat;
+        background-size: auto;
+        background-position: 8px 10px;
+    }
+
+    .confluence-information-macro-warning {
+        background-image: url(../images/icons/error.png);
+        background-repeat: no-repeat;
+        background-size: auto;
+        background-position: 8px 10px;
+    }
+
+    .confluence-information-macro-note {
+        background-image: url(../images/icons/warning.png);
+        background-repeat: no-repeat;
+        background-size: auto;
+        background-position: 8px 10px;
+    }
+
+    .confluence-information-macro-tip {
+        background-image: url(../images/icons/approve.png);
+        background-repeat: no-repeat;
+        background-size: auto;
+        background-position: 8px 10px;
+    }
+
+    /*removal of icon background, in case it is hidden*/
+    .confluence-information-macro-information.has-no-icon {
+        background-image: none;
+    }
+
+    .confluence-information-macro-warning.has-no-icon {
+        background-image: none;
+    }
+
+    .confluence-information-macro-note.has-no-icon {
+        background-image: none;
+    }
+
+    .confluence-information-macro-tip.has-no-icon {
+        background-image: none;
+    }
+}
