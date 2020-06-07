@@ -1,0 +1,108 @@
+<atlassian-plugin key="${atlassian.plugin.key}" name="${project.name}" plugins-version="2">
+    <plugin-info>
+        <description>${project.description}</description>
+        <version>${project.version}</version>
+        <vendor name="${project.organization.name}" url="${project.organization.url}"/>
+        <param name="plugin-icon">images/icon.png</param>
+        <param name="plugin-logo">images/logo.png</param>
+    </plugin-info>
+
+    <resource type="i18n" name="i18n" location="plugin-pdf_en-US"/>
+
+    <web-resource key="plugin-pdf_resources" name="web resources">
+        <resource type="download" name="pdf.css" location="/css/pdf.css"/>
+        <resource type="download" name="images/" location="/images"/>
+    </web-resource>
+
+    <xhtml-macro name='PDF Landscape Export' key='edu.bshp.confluence.plugin.pdf.pdf_landscape'
+                 hasBody='true'
+                 bodyType='rendered'
+                 outputType='html'
+                 icon="/download/resources/${atlassian.plugin.key}:plugin-pdf_resources/images/logo.png"
+                 class="edu.bshp.confluence.plugin.pdf.PdfLandscape">
+        <description key="edu.bshp.confluence.plugin.pdf.pdf_landscape.description"/>
+        <category name="confluence-content"/>
+        <parameters/>
+    </xhtml-macro>
+
+   <xhtml-macro name="PDF Hidden Webview" key="edu.bshp.confluence.plugin.pdf.webview_hide"
+                hasBody="true"
+                bodyType="rendered"
+                outputType="html"
+                icon="/download/resources/${atlassian.plugin.key}:plugin-pdf_resources/images/logo.png"
+                class="edu.bshp.confluence.plugin.pdf.HideInWebView">
+        <description key="edu.bshp.confluence.plugin.pdf.webview_hide.description"/>
+        <category name="confluence-content"/>
+        <parameters/>
+    </xhtml-macro>
+
+    <xhtml-macro name="PDF Hidden Export" key="edu.bshp.confluence.plugin.pdf.pdf_hide"
+                 hasBody="true"
+                 bodyType="rendered"
+                 outputType="html"
+                 icon="/download/resources/${atlassian.plugin.key}:plugin-pdf_resources/images/logo.png"
+                 class="edu.bshp.confluence.plugin.pdf.HideInPdfExport">
+        <description key="edu.bshp.confluence.plugin.pdf.pdf_hide.description"/>
+        <category name="confluence-content"/>
+        <parameters/>
+    </xhtml-macro>
+
+    <user-macro name='PDF DateTime Add' key='edu.bshp.confluence.plugin.pdf.current_date_and_time'
+                hasBody='false'
+                bodyType='rendered'
+                outputType='html'
+                icon="/download/resources/${atlassian.plugin.key}:plugin-pdf_resources/images/logo.png">
+        <description key ="edu.bshp.confluence.plugin.pdf.current_date_and_time.description"/>
+        <template><![CDATA[
+            ## @noparams
+            #requireResource('edu.bshp.confluence.plugin.pdf:plugin-pdf_resources')
+            $action.dateFormatter.currentDateTime]]></template>
+        <category name="confluence-content" />
+        <parameters/>
+    </user-macro>
+
+    <user-macro name='PDF Page Break Add' key='edu.bshp.confluence.plugin.pdf.pdf_pagebreak'
+                hasBody='false'
+                bodyType='rendered'
+                outputType='html'
+                icon="/download/resources/${atlassian.plugin.key}:plugin-pdf_resources/images/logo.png">
+        <description key="edu.bshp.confluence.plugin.pdf.pdf_pagebreak.description"/>
+        <template>
+            <![CDATA[
+            ## @noparams
+            #requireResource('edu.bshp.confluence.plugin.pdf:plugin-pdf_resources')
+            <div class="pageBreakInPdfExport">
+                <!-- do not remove this comment otherwise the div is removed
+            </div>
+            ]]>
+        </template>
+        <category name="confluence-content" />
+        <parameters/>
+    </user-macro>
+
+    <user-macro name='PDF Page Break Remove' key='edu.bshp.confluence.plugin.pdf.pdf_avoid_pagebreak'
+                hasBody='true'
+                bodyType='rendered'
+                outputType='html'
+                icon="/download/resources/${atlassian.plugin.key}:plugin-pdf_resources/images/logo.png">
+        <description key="edu.bshp.confluence.plugin.pdf.pdf_avoid_pagebreak.description"/>
+        <template>
+            <![CDATA[
+            ## @noparams
+            #requireResource('edu.bshp.confluence.plugin.pdf:plugin-pdf_resources')
+            <div class="avoidPageBreakInPdfExport">$body</div>
+            ]]>
+        </template>
+        <category name="confluence-content" />
+        <parameters/>
+    </user-macro>
+
+    <xhtml-macro name='PDF Fontsize' key='edu.bshp.confluence.plugin.pdf.pdf_fontsize'
+        class="edu.bshp.confluence.plugin.pdf.PdfFontSize"
+        icon="/download/resources/${atlassian.plugin.key}:plugin-pdf_resources/images/logo.png">
+        <category name="confluence-content" />
+        <parameters>
+            <parameter name="fontsize" type="string" required="true"/>
+        </parameters>
+    </xhtml-macro>
+</atlassian-plugin>
