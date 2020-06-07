@@ -7,7 +7,7 @@
         <param name="plugin-logo">images/logo.png</param>
     </plugin-info>
 
-    <resource type="i18n" name="i18n" location="plugin-pdf_en-US"/>
+    <resource type="i18n" name="i18n" location="plugin-pdf_enUS"/>
 
     <web-resource key="plugin-pdf_resources" name="web resources">
         <resource type="download" name="pdf.css" location="/css/pdf.css"/>
